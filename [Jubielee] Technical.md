@@ -142,7 +142,7 @@ Account creation isn't instant — there's processing time on US Bank's side. To
   → Save to DB: status = "UNASSIGNED"
   
 Current pre-issue count: **2,000–3,000 cards**. Can be scaled up as needed.
-
+```
 ---
 
 ## Q3. Spend Limit Enforcement — Event-based Balance Tracking
@@ -152,8 +152,8 @@ Current pre-issue count: **2,000–3,000 cards**. Can be scaled up as needed.
 US Bank automatically declines any transaction that fails either of these checks:
 
 ```
-① user.availableCredit >= spendAmount   ← user level
-② systemBalance        >= spendAmount   ← system level
+user.availableCredit >= spendAmount   ← user level
+systemBalance        >= spendAmount   ← system level
 ```
 
 TK doesn't need to handle spend enforcement. What TK does need to handle is the **guard on top-up** — making sure we never allocate more than what's actually in the system wallet.
