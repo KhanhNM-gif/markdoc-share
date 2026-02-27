@@ -72,9 +72,9 @@ System Wallet: $1,000
 
 |                   | Managed by                                                     | Can TK change it?                  |
 | ----------------- | -------------------------------------------------------------- | ---------------------------------- |
-| `creditLimit`     | TK                                                             | ✅ Yes — via `PATCH /credit-limit` |
-| `availableCredit` | US Bank calculates automatically (`creditLimit - amountSpent`) | ❌ No                              |
-| `amountSpent`     | US Bank tracks on every transaction                            | ❌ No                              |
+| `creditLimit`     | TK                                                             |  Yes — via `PATCH /credit-limit` |
+| `availableCredit` | US Bank calculates automatically (`creditLimit - amountSpent`) |  No                              |
+| `amountSpent`     | US Bank tracks on every transaction                            |  No                              |
 
 We focus on `creditLimit` as the single control point — it's clean, predictable, and doesn't depend on real-time state from US Bank. `availableCredit` is just a derived value we read when we need to show it to the user.
 
