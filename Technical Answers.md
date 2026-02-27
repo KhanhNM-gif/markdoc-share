@@ -222,9 +222,9 @@ Daily cron job:
 ### Alert thresholds
 
 ```
-systemFreeBalance < 10% of systemBalance  →  ⚠️  Warn Ops to add funds
-systemFreeBalance < 5%  of systemBalance  →  🔴  Block new top-ups
-systemFreeBalance = 0                     →  🔴  Emergency — notify Ops immediately
+systemFreeBalance < 10% of systemBalance  →  Warn Ops to add funds
+systemFreeBalance < 5%  of systemBalance  →  Block new top-ups
+systemFreeBalance = 0                     →  Emergency — notify Ops immediately
 ```
 
 These are sensible defaults, but should be tuned based on TK's usage patterns:
