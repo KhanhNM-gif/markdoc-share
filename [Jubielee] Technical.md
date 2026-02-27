@@ -134,21 +134,13 @@ tk_user_id  (TK internal)
 
 ### Pre-issue strategy (zero wait time for users)
 
-Account creation isn't instant — there's processing time on US Bank's side. To avoid making users wait, we **create accounts in advance** and assign them when a user registers.
+Account creation isn't instant — there's processing time on US Bank's side. To avoid making users wait, we **create accounts in advance**. When a user registers, update user info and assign them.
 
 ```
 [Batch job — run in advance by admin]
   POST /accounts/setup × N
   → Save to DB: status = "UNASSIGNED"
-
-[When user registers for a card]
-  1. Pull one UNASSIGNED account from DB
-  2. PATCH /accounts/{id}/owner          ← attach user's info
-  3. PATCH /accounts/{id}/credit-limit   ← set initial limit
-  4. POST  /accounts/{id}/activate       ← activate the card
-  5. DB: status = "ASSIGNED", link tk_user_id
-```
-
+  
 Current pre-issue count: **2,000–3,000 cards**. Can be scaled up as needed.
 
 ---
